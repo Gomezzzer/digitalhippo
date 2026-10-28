@@ -1,5 +1,5 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -20,12 +20,12 @@ export default function Home() {
           <div className='flex flex-col sm:flex-row gap-4 mt-6'>
             <Link
               href='/products'
-              className={cn(
-                buttonVariants(),
-                "bg-blue-600 text-white hover:bg-blue-700",
-              )}>
+              className={
+                buttonVariants()
+              }>
               Browse Trending
             </Link> 
+            <Button variant='ghost'>Our quality promise &rarr;</Button>
           </div>
       </div>  
     </MaxWidthWrapper>
