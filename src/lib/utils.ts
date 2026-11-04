@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatprice (
+export function formatPrice (
   price: number | string,
   options: {
   currency?:  "USD" | "EUR" | "GBP" | "BDT",

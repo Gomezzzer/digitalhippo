@@ -1,14 +1,19 @@
 "use client"
 
+import Link from 'next/link'
+import Image from 'next/image'
 import { ShoppingCart } from 'lucide-react'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet' 
+import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet' 
 import { Separator } from './ui/separator'
-import { formatprice } from '@/lib/utils'
+import { formatPrice } from '@/lib/utils'
+import { buttonVariants } from './ui/button'
 
 
 const Cart = () => {
 
-    const itemCount = 1
+    const itemCount = 0
+
+    const fee = 1  
 
     return (
      <Sheet>
@@ -39,13 +44,47 @@ const Cart = () => {
                     </div>
                      <div className='flex'>
                         <span className='flex-1'>Transaction Fee</span>  
-                        <span>{formatprice(1)}</span>  
-                    </div>
+                        <span>{formatPrice(fee)}</span>  
+                     </div>
+                     <div className='flex'>
+                        <span className='flex-1'>Total</span>  
+                        <span>{formatPrice(fee)}</span>  
+                     </div>
                 </div>
+
+                <SheetFooter>
+                    <Link href='/cart'
+                    className={buttonVariants({
+                      className: 'w-full',
+                    })}>Continue to Checkout</Link>
+                </SheetFooter>
               </div>
             </>
           ) : (
-          <div></div> 
+          <div className='flex h-full flex-col items-center justify-center space-y-1'>
+            <div
+              aria-hidden='true'
+              className='relative mb-4 h-60 w-60 text-muted-foreground'>
+              <Image
+                src='/hippo-empty-cart.png'
+                fill
+                alt='empty shopping cart hippo'
+              />
+            </div>
+            <div className='text-xl font-semibold'>
+              Your cart is empty
+            </div>
+            <Link
+              href='/products'
+              className={buttonVariants({
+                variant: 'link',
+                size: 'sm',
+                className:
+                  'text-sm text-muted-foreground',
+              })}>
+              Add items to your cart to checkout
+            </Link>
+            </div> 
           )} 
         </SheetContent>
      </Sheet> 
