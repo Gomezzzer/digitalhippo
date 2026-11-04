@@ -53,10 +53,13 @@ const Cart = () => {
                 </div>
 
                 <SheetFooter>
+                  <SheetTrigger>
                     <Link href='/cart'
                     className={buttonVariants({
                       className: 'w-full',
-                    })}>Continue to Checkout</Link>
+                    })}>Continue to Checkout
+                    </Link>
+                  </SheetTrigger> 
                 </SheetFooter>
               </div>
             </>
@@ -74,16 +77,18 @@ const Cart = () => {
             <div className='text-xl font-semibold'>
               Your cart is empty
             </div>
-            <Link
-              href='/products'
-              className={buttonVariants({
-                variant: 'link',
-                size: 'sm',
-                className:
-                  'text-sm text-muted-foreground',
-              })}>
-              Add items to your cart to checkout
-            </Link>
+            <SheetTrigger>
+              <Link
+                href='/products'
+                className={buttonVariants({
+                  variant: 'link',
+                  size: 'sm',
+                  className:
+                    'text-sm text-muted-foreground',
+                })}>
+                Add items to your cart to checkout
+              </Link>
+            </SheetTrigger> 
             </div> 
           )} 
         </SheetContent>
